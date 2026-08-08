@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopNest - Online Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="logo"><span>Shop</span>Nest</div>
+
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#categories">Categories</a>
+        <a href="#deals">Deals</a>
+    </nav>
+
+    <div class="header-actions">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search products...">
+            <span>🔍</span>
+        </div>
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">🌙</button>
+        <button class="account-btn" id="accountBtn" aria-label="Account">
+            👤 <span id="accountLabel">Login</span>
+        </button>
+
+        <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+            🛒 <span id="cartCount">0</span>
+        </button>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#categories">Categories</a>
+    <a href="#deals">Deals</a>
+</div>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="hero-small">SUMMER COLLECTION 2026</p>
+        <h1>Discover Your <span>Perfect Style.</span></h1>
+        <p>Shop the latest trends in fashion, electronics, accessories and more.</p>
+        <div class="hero-buttons">
+            <a href="#products" class="primary-btn">Shop Now →</a>
+            <a href="#categories" class="secondary-btn">Explore Categories</a>
+        </div>
+    </div>
+    <div class="hero-image">🛍️</div>
+</section>
+
+<section class="features">
+    <div class="feature"><div class="feature-icon">🚚</div><div><h3>Free Shipping</h3><p>On orders over ₹999</p></div></div>
+    <div class="feature"><div class="feature-icon">🔒</div><div><h3>Secure Payment</h3><p>100% secure checkout</p></div></div>
+    <div class="feature"><div class="feature-icon">↩️</div><div><h3>Easy Returns</h3><p>30 day return policy</p></div></div>
+    <div class="feature"><div class="feature-icon">💬</div><div><h3>24/7 Support</h3><p>We're here to help</p></div></div>
+</section>
+
+<section class="section" id="categories">
+    <div class="section-heading">
+        <div>
+            <p class="section-label">SHOP BY CATEGORY</p>
+            <h2>Explore Categories</h2>
+        </div>
+    </div>
+
+    <div class="categories">
+        <div class="category-card" data-category="Fashion">
+            <div class="category-icon">👕</div><h3>Fashion</h3><p>120+ Products</p>
+        </div>
+        <div class="category-card" data-category="Electronics">
+            <div class="category-icon">💻</div><h3>Electronics</h3><p>80+ Products</p>
+        </div>
+        <div class="category-card" data-category="Shoes">
+            <div class="category-icon">👟</div><h3>Shoes</h3><p>65+ Products</p>
+        </div>
+        <div class="category-card" data-category="Accessories">
+            <div class="category-icon">👜</div><h3>Accessories</h3><p>90+ Products</p>
+        </div>
+    </div>
+</section>
+
+<section class="section products-section" id="products">
+    <div class="section-heading">
+        <div>
+            <p class="section-label">OUR COLLECTION</p>
+            <h2>Popular Products</h2>
+        </div>
+        <div class="filters">
+            <button class="filter-btn active" data-filter="All">All</button>
+            <button class="filter-btn" data-filter="Fashion">Fashion</button>
+            <button class="filter-btn" data-filter="Electronics">Electronics</button>
+            <button class="filter-btn" data-filter="Shoes">Shoes</button>
+            <button class="filter-btn" data-filter="Accessories">Accessories</button>
+        </div>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<section class="deal" id="deals">
+    <div>
+        <p>LIMITED TIME OFFER</p>
+        <h2>Get up to <span>50% OFF</span></h2>
+        <p>Don't miss our biggest sale of the season.</p>
+        <a href="#products" class="primary-btn">Shop Deals →</a>
+    </div>
+    <div class="deal-emoji">🔥</div>
+</section>
+
+<section class="newsletter">
+    <div>
+        <p class="section-label">STAY UPDATED</p>
+        <h2>Get the latest offers</h2>
+        <p>Subscribe to receive exclusive deals and updates.</p>
+    </div>
+    <form id="newsletterForm">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+    </form>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div>
+            <div class="logo"><span>Shop</span>Nest</div>
+            <p>Your one-stop destination for quality products and amazing deals.</p>
+            <div class="socials"><span>𝕏</span><span>f</span><span>◎</span><span>in</span></div>
+        </div>
+        <div><h3>Shop</h3><a href="#products">All Products</a><a href="#categories">Categories</a><a href="#deals">Deals</a><a href="#">New Arrivals</a></div>
+        <div><h3>Support</h3><a href="#">Contact Us</a><a href="#">FAQs</a><a href="#">Shipping</a><a href="#">Returns</a></div>
+        <div><h3>Company</h3><a href="#">About Us</a><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Careers</a></div>
+    </div>
+    <div class="copyright">© 2026 ShopNest. All rights reserved.</div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button id="closeCart" aria-label="Close cart">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+
+        <div class="coupon-box">
+            <div class="coupon-title">Have a coupon?</div>
+
+            <div class="coupon-input-row">
+                <input
+                    type="text"
+                    id="couponInput"
+                    placeholder="Enter coupon code"
+                    autocomplete="off"
+                >
+                <button id="applyCouponBtn">Apply</button>
+            </div>
+
+            <p class="coupon-message" id="couponMessage"></p>
+
+            <div class="applied-coupon" id="appliedCoupon">
+                <span>
+                    Coupon:
+                    <strong id="appliedCouponCode">-</strong>
+                </span>
+
+                <button id="removeCouponBtn">
+                    Remove
+                </button>
+            </div>
+        </div>
+
+        <div class="cart-price-breakdown">
+            <div>
+                <span>Subtotal</span>
+                <strong id="cartSubtotal">₹0</strong>
+            </div>
+
+            <div id="cartDiscountRow" class="discount-row">
+                <span>Discount</span>
+                <strong id="cartDiscount">-₹0</strong>
+            </div>
+
+            <div>
+                <span>Shipping</span>
+                <strong id="cartShipping">₹0</strong>
+            </div>
+
+            <div class="cart-grand-total">
+                <span>Total</span>
+                <strong id="cartTotal">₹0</strong>
+            </div>
+        </div>
+
+        <button class="checkout-btn" id="checkoutBtn">
+            Proceed to Checkout
+        </button>
+    </div>
+</aside>
+
+<div class="modal" id="productModal">
+    <div class="modal-content">
+        <button class="modal-close" id="modalClose" aria-label="Close product">✕</button>
+        <div id="modalProduct"></div>
+    </div>
+</div>
+
+<!-- Authentication -->
+<div class="auth-modal" id="authModal">
+    <div class="auth-card">
+
+        <button class="auth-close" id="authClose" aria-label="Close authentication">✕</button>
+
+        <div class="auth-brand">
+            <div class="logo"><span>Shop</span>Nest</div>
+        </div>
+
+        <div class="auth-tabs">
+            <button class="auth-tab active" id="loginTab">Login</button>
+            <button class="auth-tab" id="signupTab">Sign Up</button>
+        </div>
+
+        <div class="auth-panel" id="loginPanel">
+            <p class="auth-kicker">WELCOME BACK</p>
+            <h2>Login to your account</h2>
+            <p class="auth-subtitle">Access your cart, wishlist and orders.</p>
+
+            <form id="loginForm" class="auth-form">
+                <label>Email
+                    <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                </label>
+
+                <label>Password
+                    <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                </label>
+
+                <div class="auth-options">
+                    <label class="remember">
+                        <input type="checkbox" id="rememberMe">
+                        <span>Remember me</span>
+                    </label>
+                    <button type="button" class="forgot-btn" id="forgotPassword">Forgot password?</button>
+                </div>
+
+                <button type="submit" class="auth-submit">Login</button>
+                <p class="auth-message" id="loginMessage"></p>
+            </form>
+
+            <p class="switch-auth">
+                Don't have an account?
+                <button type="button" id="switchToSignup">Create one</button>
+            </p>
+        </div>
+
+        <div class="auth-panel hidden" id="signupPanel">
+            <p class="auth-kicker">JOIN SHOPNEST</p>
+            <h2>Create your account</h2>
+            <p class="auth-subtitle">Sign up to make shopping faster and easier.</p>
+
+            <form id="signupForm" class="auth-form">
+                <label>Full Name
+                    <input type="text" id="signupName" placeholder="Your name" required>
+                </label>
+
+                <label>Email
+                    <input type="email" id="signupEmail" placeholder="you@example.com" required>
+                </label>
+
+                <label>Password
+                    <input type="password" id="signupPassword" placeholder="Minimum 6 characters" minlength="6" required>
+                </label>
+
+                <label>Confirm Password
+                    <input type="password" id="signupConfirm" placeholder="Repeat your password" minlength="6" required>
+                </label>
+
+                <label class="terms-check">
+                    <input type="checkbox" id="termsCheck" required>
+                    <span>I agree to the Terms & Privacy Policy.</span>
+                </label>
+
+                <button type="submit" class="auth-submit">Create Account</button>
+                <p class="auth-message" id="signupMessage"></p>
+            </form>
+
+            <p class="switch-auth">
+                Already have an account?
+                <button type="button" id="switchToLogin">Login</button>
+            </p>
+        </div>
+
+        <div class="account-panel hidden" id="accountPanel">
+            <div class="account-avatar" id="accountAvatar">P</div>
+            <p class="auth-kicker">MY ACCOUNT</p>
+            <h2 id="accountName">Priyanshu</h2>
+            <p class="auth-subtitle" id="accountEmail">you@example.com</p>
+
+            <div class="account-actions">
+                <button type="button" id="accountOrders">📦 My Orders</button>
+                <button type="button" id="accountWishlist">♡ Wishlist</button>
+                <button type="button" id="logoutBtn" class="logout-btn">↪ Logout</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Receipt -->
+<div class="receipt-modal" id="receiptModal">
+    <div class="receipt">
+        <div class="receipt-header">
+            <div>
+                <h2>ShopNest</h2>
+                <p>Order Receipt</p>
+            </div>
+            <button class="receipt-close" id="receiptClose" aria-label="Close receipt">✕</button>
+        </div>
+
+        <div class="receipt-info">
+            <div><span>Order ID</span><strong id="receiptOrderId">-</strong></div>
+            <div><span>Date</span><strong id="receiptDate">-</strong></div>
+        </div>
+
+        <div class="receipt-items">
+            <h3>Items Purchased</h3>
+            <div id="receiptItems"></div>
+        </div>
+
+        <div class="receipt-summary">
+            <div><span>Subtotal</span><strong id="receiptSubtotal">₹0</strong></div>
+            <div id="receiptDiscountRow" class="receipt-discount-row">
+                <span>Discount <small id="receiptCouponCode"></small></span>
+                <strong id="receiptDiscount">-₹0</strong>
+            </div>
+            <div><span>Shipping</span><strong id="receiptShipping">FREE</strong></div>
+            <div class="receipt-total"><span>Total</span><strong id="receiptTotal">₹0</strong></div>
+        </div>
+
+        <div class="receipt-success">
+            <div class="success-icon">✓</div>
+            <div><h3>Order Confirmed!</h3><p>Thank you for shopping with ShopNest.</p></div>
+        </div>
+
+        <div class="receipt-actions">
+            <button class="print-btn" id="printReceipt">🖨️ Print Receipt</button>
+            <button class="continue-btn" id="continueShopping">Continue Shopping</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
