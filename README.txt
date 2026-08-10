@@ -1,4 +1,4 @@
-# ShopNest E-Commerce Frontend
+# Cartly E-Commerce Frontend
 
 Frontend-only e-commerce demo built with HTML, CSS and Vanilla JavaScript.
 

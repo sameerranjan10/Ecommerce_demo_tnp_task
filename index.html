@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopNest - Online Store</title>
+    <title>Cartly - Online Store</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 <body>
 
 <header class="header">
-    <div class="logo"><span>Shop</span>Nest</div>
+    <div class="logo"><span class="logo-text">Cart</span><span class="logo-accent">ly</span></div>
 
     <nav class="navbar">
         <a href="#home">Home</a>
@@ -22,20 +22,31 @@
     </nav>
 
     <div class="header-actions">
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search products...">
-            <span>🔍</span>
+        <div class="search-wrap">
+            <div class="search-box">
+                <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="searchInput" placeholder="Search products, brands..." autocomplete="off">
+            </div>
+            <div class="search-dropdown" id="searchDropdown"></div>
         </div>
-        <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">🌙</button>
+
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">
+            <svg class="icon-svg" id="themeIconSvg" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
         <button class="account-btn" id="accountBtn" aria-label="Account">
-            👤 <span id="accountLabel">Login</span>
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span id="accountLabel">Login</span>
         </button>
 
         <button class="cart-btn" id="cartBtn" aria-label="Open cart">
-            🛒 <span id="cartCount">0</span>
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <span id="cartCount">0</span>
         </button>
 
-        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+            <svg class="icon-svg" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
     </div>
 </header>
 
@@ -44,26 +55,52 @@
     <a href="#products">Products</a>
     <a href="#categories">Categories</a>
     <a href="#deals">Deals</a>
+    <button class="icon-btn" id="mobileThemeBtn" style="text-align:left;font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px;padding:5px 0;">
+        <span id="mobileThemeIcon">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </span>
+        <span id="mobileThemeLabel">Switch to Dark Mode</span>
+    </button>
 </div>
 
 <section class="hero" id="home">
     <div class="hero-content">
         <p class="hero-small">SUMMER COLLECTION 2026</p>
-        <h1>Discover Your <span>Perfect Style.</span></h1>
-        <p>Shop the latest trends in fashion, electronics, accessories and more.</p>
+        <h1>Find what you love. <span>Cart it instantly.</span></h1>
+        <p>Discover premium products you'll love across fashion, electronics, beauty and more.</p>
         <div class="hero-buttons">
             <a href="#products" class="primary-btn">Shop Now →</a>
             <a href="#categories" class="secondary-btn">Explore Categories</a>
         </div>
     </div>
-    <div class="hero-image">🛍️</div>
+    <div class="hero-composition" id="heroComposition"></div>
 </section>
 
 <section class="features">
-    <div class="feature"><div class="feature-icon">🚚</div><div><h3>Free Shipping</h3><p>On orders over ₹999</p></div></div>
-    <div class="feature"><div class="feature-icon">🔒</div><div><h3>Secure Payment</h3><p>100% secure checkout</p></div></div>
-    <div class="feature"><div class="feature-icon">↩️</div><div><h3>Easy Returns</h3><p>30 day return policy</p></div></div>
-    <div class="feature"><div class="feature-icon">💬</div><div><h3>24/7 Support</h3><p>We're here to help</p></div></div>
+    <div class="feature" data-feature="shipping" style="cursor:pointer">
+        <div class="feature-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+        </div>
+        <div><h3>Free Shipping</h3><p>On orders over ₹999</p></div>
+    </div>
+    <div class="feature" data-feature="secure" style="cursor:pointer">
+        <div class="feature-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+        </div>
+        <div><h3>Secure Payment</h3><p>100% secure checkout</p></div>
+    </div>
+    <div class="feature" data-feature="returns" style="cursor:pointer">
+        <div class="feature-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+        </div>
+        <div><h3>Easy Returns</h3><p>30 day return policy</p></div>
+    </div>
+    <div class="feature" data-feature="support" style="cursor:pointer">
+        <div class="feature-icon">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+        </div>
+        <div><h3>24/7 Support</h3><p>We're here to help</p></div>
+    </div>
 </section>
 
 <section class="section" id="categories">
@@ -74,18 +111,18 @@
         </div>
     </div>
 
-    <div class="categories">
-        <div class="category-card" data-category="Fashion">
-            <div class="category-icon">👕</div><h3>Fashion</h3><p>120+ Products</p>
+    <div class="categories" id="categoriesContainer">
+        <div class="category-card" data-category="Beauty">
+            <div class="category-icon">✨</div><h3>Beauty</h3><p>Explore Products</p>
         </div>
-        <div class="category-card" data-category="Electronics">
-            <div class="category-icon">💻</div><h3>Electronics</h3><p>80+ Products</p>
+        <div class="category-card" data-category="Groceries">
+            <div class="category-icon">🛒</div><h3>Groceries</h3><p>Explore Products</p>
         </div>
-        <div class="category-card" data-category="Shoes">
-            <div class="category-icon">👟</div><h3>Shoes</h3><p>65+ Products</p>
+        <div class="category-card" data-category="Furniture">
+            <div class="category-icon">🪑</div><h3>Furniture</h3><p>Explore Products</p>
         </div>
-        <div class="category-card" data-category="Accessories">
-            <div class="category-icon">👜</div><h3>Accessories</h3><p>90+ Products</p>
+        <div class="category-card" data-category="Fragrances">
+            <div class="category-icon">🧴</div><h3>Fragrances</h3><p>Explore Products</p>
         </div>
     </div>
 </section>
@@ -96,12 +133,16 @@
             <p class="section-label">OUR COLLECTION</p>
             <h2>Popular Products</h2>
         </div>
-        <div class="filters">
-            <button class="filter-btn active" data-filter="All">All</button>
-            <button class="filter-btn" data-filter="Fashion">Fashion</button>
-            <button class="filter-btn" data-filter="Electronics">Electronics</button>
-            <button class="filter-btn" data-filter="Shoes">Shoes</button>
-            <button class="filter-btn" data-filter="Accessories">Accessories</button>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+            <select id="sortSelect" class="sort-select" aria-label="Sort products">
+                <option value="featured">Sort: Featured</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Top Rated</option>
+            </select>
+            <div class="filters" id="filtersContainer">
+                <button class="filter-btn active" data-filter="All">All</button>
+            </div>
         </div>
     </div>
     <div class="products-grid" id="productsGrid"></div>
@@ -110,21 +151,20 @@
 <section class="deal" id="deals">
     <div>
         <p>LIMITED TIME OFFER</p>
-        <h2>Get up to <span>50% OFF</span></h2>
-        <p>Don't miss our biggest sale of the season.</p>
+        <h2>Get up to <span style="color:var(--primary)">50% OFF</span></h2>
+        <p>Don't miss our biggest sale of the season across all top categories.</p>
         <a href="#products" class="primary-btn">Shop Deals →</a>
     </div>
-    <div class="deal-emoji">🔥</div>
 </section>
 
 <section class="newsletter">
     <div>
         <p class="section-label">STAY UPDATED</p>
         <h2>Get the latest offers</h2>
-        <p>Subscribe to receive exclusive deals and updates.</p>
+        <p>Subscribe to receive exclusive deals, new arrivals and updates.</p>
     </div>
     <form id="newsletterForm">
-        <input type="email" placeholder="Enter your email" required>
+        <input type="email" id="newsletterEmail" placeholder="Enter your email" required>
         <button type="submit">Subscribe</button>
     </form>
 </section>
@@ -132,15 +172,20 @@
 <footer>
     <div class="footer-grid">
         <div>
-            <div class="logo"><span>Shop</span>Nest</div>
+            <div class="logo"><span class="logo-text">Cart</span><span class="logo-accent">ly</span></div>
             <p>Your one-stop destination for quality products and amazing deals.</p>
-            <div class="socials"><span>𝕏</span><span>f</span><span>◎</span><span>in</span></div>
+            <div class="socials" style="margin-top:15px;display:flex;gap:12px;color:var(--muted)">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                <svg class="icon-svg" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </div>
         </div>
-        <div><h3>Shop</h3><a href="#products">All Products</a><a href="#categories">Categories</a><a href="#deals">Deals</a><a href="#">New Arrivals</a></div>
-        <div><h3>Support</h3><a href="#">Contact Us</a><a href="#">FAQs</a><a href="#">Shipping</a><a href="#">Returns</a></div>
-        <div><h3>Company</h3><a href="#">About Us</a><a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Careers</a></div>
+        <div><h3>Shop</h3><a href="#products">All Products</a><a href="#categories">Categories</a><a href="#deals">Deals</a><a href="#products">New Arrivals</a></div>
+        <div><h3>Support</h3><a href="#home">Contact Us</a><a href="#home">FAQs</a><a href="#home">Shipping</a><a href="#home">Returns</a></div>
+        <div><h3>Company</h3><a href="#home">About Us</a><a href="#home">Privacy Policy</a><a href="#home">Terms</a><a href="#home">Careers</a></div>
     </div>
-    <div class="copyright">© 2026 ShopNest. All rights reserved.</div>
+    <div class="copyright">© 2026 Cartly. All rights reserved.</div>
 </footer>
 
 <div class="overlay" id="overlay"></div>
@@ -222,7 +267,7 @@
         <button class="auth-close" id="authClose" aria-label="Close authentication">✕</button>
 
         <div class="auth-brand">
-            <div class="logo"><span>Shop</span>Nest</div>
+            <div class="logo"><span>Cart</span>ly</div>
         </div>
 
         <div class="auth-tabs">
@@ -241,7 +286,10 @@
                 </label>
 
                 <label>Password
-                    <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                    <div class="password-wrap">
+                        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                        <button type="button" class="toggle-password" data-target="loginPassword" aria-label="Toggle password visibility">👁️</button>
+                    </div>
                 </label>
 
                 <div class="auth-options">
@@ -263,7 +311,7 @@
         </div>
 
         <div class="auth-panel hidden" id="signupPanel">
-            <p class="auth-kicker">JOIN SHOPNEST</p>
+            <p class="auth-kicker">JOIN CARTLY</p>
             <h2>Create your account</h2>
             <p class="auth-subtitle">Sign up to make shopping faster and easier.</p>
 
@@ -277,11 +325,17 @@
                 </label>
 
                 <label>Password
-                    <input type="password" id="signupPassword" placeholder="Minimum 6 characters" minlength="6" required>
+                    <div class="password-wrap">
+                        <input type="password" id="signupPassword" placeholder="Minimum 6 characters" minlength="6" required>
+                        <button type="button" class="toggle-password" data-target="signupPassword" aria-label="Toggle password visibility">👁️</button>
+                    </div>
                 </label>
 
                 <label>Confirm Password
-                    <input type="password" id="signupConfirm" placeholder="Repeat your password" minlength="6" required>
+                    <div class="password-wrap">
+                        <input type="password" id="signupConfirm" placeholder="Repeat your password" minlength="6" required>
+                        <button type="button" class="toggle-password" data-target="signupConfirm" aria-label="Toggle password visibility">👁️</button>
+                    </div>
                 </label>
 
                 <label class="terms-check">
@@ -300,14 +354,89 @@
         </div>
 
         <div class="account-panel hidden" id="accountPanel">
-            <div class="account-avatar" id="accountAvatar">P</div>
-            <p class="auth-kicker">MY ACCOUNT</p>
-            <h2 id="accountName">Priyanshu</h2>
-            <p class="auth-subtitle" id="accountEmail">you@example.com</p>
+            <div class="dashboard-header">
+                <div class="account-avatar" id="accountAvatar">P</div>
+                <div class="dashboard-user-info">
+                    <p class="auth-kicker">WELCOME BACK</p>
+                    <h2 id="accountName">Cartly User</h2>
+                    <p class="auth-subtitle" id="accountEmail">you@example.com</p>
+                </div>
+            </div>
 
-            <div class="account-actions">
-                <button type="button" id="accountOrders">📦 My Orders</button>
-                <button type="button" id="accountWishlist">♡ Wishlist</button>
+            <!-- Dashboard Nav Tabs -->
+            <div class="dashboard-nav">
+                <button class="dash-tab active" data-dash="overview">📊 Overview</button>
+                <button class="dash-tab" data-dash="orders">📦 My Orders</button>
+                <button class="dash-tab" data-dash="wishlist">♡ Wishlist</button>
+                <button class="dash-tab" data-dash="settings">⚙️ Settings</button>
+            </div>
+
+            <!-- Overview View -->
+            <div class="dash-content" id="dashOverview">
+                <div class="dash-stats">
+                    <div class="stat-card">
+                        <span class="stat-icon">📦</span>
+                        <div class="stat-info">
+                            <strong id="dashTotalOrders">0</strong>
+                            <small>Total Orders</small>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">♡</span>
+                        <div class="stat-info">
+                            <strong id="dashWishlistCount">0</strong>
+                            <small>Saved Items</small>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">💳</span>
+                        <div class="stat-info">
+                            <strong id="dashTotalSpent">₹0</strong>
+                            <small>Total Spent</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dash-recent-order">
+                    <h3>Latest Activity</h3>
+                    <div id="dashLatestOrderContent">
+                        <p class="empty-dash">No orders placed yet.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orders View -->
+            <div class="dash-content hidden" id="dashOrders">
+                <div class="dash-orders-list" id="dashOrdersList">
+                    <p class="empty-dash">No past orders found.</p>
+                </div>
+            </div>
+
+            <!-- Wishlist View -->
+            <div class="dash-content hidden" id="dashWishlist">
+                <div class="dash-wishlist-grid" id="dashWishlistGrid">
+                    <p class="empty-dash">Your wishlist is empty.</p>
+                </div>
+            </div>
+
+            <!-- Settings View -->
+            <div class="dash-content hidden" id="dashSettings">
+                <form id="profileForm" class="auth-form" style="text-align:left">
+                    <label>Full Name
+                        <input type="text" id="profileName" required>
+                    </label>
+                    <label>Phone Number
+                        <input type="text" id="profilePhone" placeholder="+91 9876543210">
+                    </label>
+                    <label>Shipping Address
+                        <input type="text" id="profileAddress" placeholder="House no, Street, City, Pincode">
+                    </label>
+                    <button type="submit" class="auth-submit">Save Profile</button>
+                    <p class="auth-message" id="profileMessage"></p>
+                </form>
+            </div>
+
+            <div class="account-actions" style="margin-top:20px;border-top:1px solid var(--border);padding-top:15px">
                 <button type="button" id="logoutBtn" class="logout-btn">↪ Logout</button>
             </div>
         </div>
@@ -320,7 +449,7 @@
     <div class="receipt">
         <div class="receipt-header">
             <div>
-                <h2>ShopNest</h2>
+                <h2>Cartly</h2>
                 <p>Order Receipt</p>
             </div>
             <button class="receipt-close" id="receiptClose" aria-label="Close receipt">✕</button>
@@ -348,7 +477,7 @@
 
         <div class="receipt-success">
             <div class="success-icon">✓</div>
-            <div><h3>Order Confirmed!</h3><p>Thank you for shopping with ShopNest.</p></div>
+            <div><h3>Order Confirmed!</h3><p>Thank you for shopping with Cartly.</p></div>
         </div>
 
         <div class="receipt-actions">
@@ -358,6 +487,6 @@
     </div>
 </div>
 
-<script src="script.js"></script>
+<script type="module" src="script.js"></script>
 </body>
 </html>
