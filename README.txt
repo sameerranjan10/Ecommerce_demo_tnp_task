@@ -1,6 +1,6 @@
 # Cartly E-Commerce Frontend
 
-Frontend-only e-commerce demo built with HTML, CSS and Vanilla JavaScript.
+Frontend-only e-commerce demo built with React, CSS and Vanilla JavaScript.
 
 ## Features
 - Responsive design
